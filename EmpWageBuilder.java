@@ -3,7 +3,18 @@ public class EmpWageBuilder
 	 final static int IS_FULL_TIME=1;
     final static int IS_PART_TIME=2;
 
-	public static void computeEmpWage(String company,int numOfWorkingDays,int numOfWorkingHours,int empRatePerHr)
+	public static String company;
+	public static int numOfWorkingDays,numOfWorkingHours,empRatePerHr;
+
+	public EmpWageBuilder(String company,int numOfWorkingDays,int numOfWorkingHours,int empRatePerHr)
+	{
+		this.company=company;
+		this.numOfWorkingDays=numOfWorkingDays;
+		this.numOfWorkingHours=numOfWorkingHours;
+		this.empRatePerHr=empRatePerHr;
+	}
+
+	public static void computeEmpWage()
 	{
 		int empHrs;
       int dailyWage=0;
@@ -33,7 +44,9 @@ public class EmpWageBuilder
 	public static void main(String args[])
 	{
 		//System.out.println("Welcome to Employee Wage Computation Program");
-		computeEmpWage("BridgeLabz",20,10,20);
-		computeEmpWage("Google",20,12,30);
+		EmpWageBuilder dMart=new EmpWageBuilder("Dmart",20,10,10);
+		dMart.computeEmpWage();
+		EmpWageBuilder reliance=new EmpWageBuilder("Reliance",25,12,25);
+      reliance.computeEmpWage();
 	}
 }
