@@ -7,10 +7,14 @@ public class EmpWageBuilder
 		final int IS_PART_TIME=2;
 		final int EMP_RATE_PER_HR=20;
 		final int MAX_WORKINGS_DAYS=20;
+		final int MAX_WORKING_HRS=10;
 		int empHrs=0;
 		int dailyWage=0;
-		for (int day=1; day<=MAX_WORKINGS_DAYS; day++)
+		int totalEmpHrs=0;
+		int workingDays=0;
+		while(workingDays<MAX_WORKINGS_DAYS && totalEmpHrs<=MAX_WORKING_HRS)
 		{
+			workingDays++;
 			double empCheck=Math.floor(Math.random()*10)%3;
 			switch((int)empCheck)
       	{
@@ -24,6 +28,7 @@ public class EmpWageBuilder
                   empHrs=0;
                   break;
       	}
+		totalEmpHrs+=empHrs;
 		dailyWage+=empHrs;
 		}
 		System.out.println("Wage of Emp after "+MAX_WORKINGS_DAYS+" days is: "+dailyWage*EMP_RATE_PER_HR);
